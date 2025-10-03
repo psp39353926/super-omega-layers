@@ -131,14 +131,14 @@ class ReStackLayer
                     }),
             ],
             [
-                new RestackLayerUpgrade("Template",
+                new RestackLayerUpgrade("Resource Powerers are now extremely strong",
                     level => new Decimal("1ee308"),
-                    level => new Decimal(1).add(level), {
+                    level => new Decimal(1).add(level.mul(5)), {
                         maxLevel: 1
                     }),
-                new RestackLayerUpgrade("Template",
+                new RestackLayerUpgrade("Resource Multipliers are now extremely strong",
                     level => new Decimal("1ee308"),
-                    level => new Decimal(1).add(level.mul(0.15)), {
+                    level => new Decimal(1).add(level.mul(10)), {
                         maxLevel: 1,
                         getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
                     }),
