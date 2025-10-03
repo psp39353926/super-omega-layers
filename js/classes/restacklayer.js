@@ -144,14 +144,21 @@ class ReStackLayer
                     }),
             ],
             [
-                new RestackLayerUpgrade("Template",
-                    level => new Decimal("1ee1000"),
-                    level => level.gt(0), {
+                new RestackLayerUpgrade("Resource Multipliers is now unfathomably strong",
+                    level => new Decimal("1ee400"),
+                    level => new Decimal(1).add(level.mul(10)), {
                         maxLevel: 1,
-                        getEffectDisplay: function()
-                        {
-                            return this.level.gt(0) ? "Doesn't reset" : "Resets";
-                        }
+                        getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
+                        
+                    }),
+            ],
+            [
+                new RestackLayerUpgrade("Resource Multipliers is now tetrated by 3",
+                    level => new Decimal("1ee500"),
+                    level => new Decimal(1).add(level.pow(3)), {
+                        maxLevel: 1,
+                        getEffectDisplay: effectDisplayTemplates.numberStandard(2, "↑↑")
+                        
                     }),
             ]
         ];
@@ -167,6 +174,7 @@ class ReStackLayer
         this.upgradeTree[7][0].setRequirements([this.upgradeTree[6][0]], [this.upgradeTree[7][1]]);
         this.upgradeTree[7][1].setRequirements([this.upgradeTree[6][0]], [this.upgradeTree[7][0]]);
         this.upgradeTree[8][0].setRequirements([this.upgradeTree[7][0], this.upgradeTree[7][1]], []);
+        this.upgradeTree[9][0].setRequirements([this.upgradeTree[8][0], this.upgradeTree[7][1]], []);
         this.upgradeTreeNames = {
             resourceMultiplier: this.upgradeTree[0][0],
             resourceMultiplierUpgrades: this.upgradeTree[1][0],
@@ -180,7 +188,8 @@ class ReStackLayer
             noReset: this.upgradeTree[6][0],
             template1: this.upgradeTree[7][0],
             template2: this.upgradeTree[7][1],
-            template3: this.upgradeTree[8][0]
+            template3: this.upgradeTree[8][0],
+            template4: this.upgradeTree[9][0]
         };
     }
 
