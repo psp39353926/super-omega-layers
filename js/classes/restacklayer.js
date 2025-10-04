@@ -169,20 +169,11 @@ class ReStackLayer
                     }),
             ],
             [
-                new RestackLayerUpgrade("Resource Powerers is now multiplied by 3",
+                new RestackLayerUpgrade("Resource Powerers is now multiplied by 10",
                     level => new Decimal("1ee133267"),
-                    level => new Decimal(1).add(level.mul(decimal.pow(level, 2))), {
+                    level => new Decimal(1).add(level.mul(decimal.pow(level, 9))), {
                         maxLevel: 1,
                         getEffectDisplay: effectDisplayTemplates.numberStandard(3, "x")
-                        
-                    }),
-            ],
-            [
-                new RestackLayerUpgrade("Resource Powerers is now multiplied by 5",
-                    level => new Decimal("1ee549711"),
-                    level => new Decimal(1).add(level.mul(decimal.pow(level, 4))), {
-                        maxLevel: 1,
-                        getEffectDisplay: effectDisplayTemplates.numberStandard(5, "x")
                         
                     }),
             ]
@@ -202,7 +193,6 @@ class ReStackLayer
         this.upgradeTree[9][0].setRequirements([this.upgradeTree[8][0], this.upgradeTree[9][1]], []);
         this.upgradeTree[9][1].setRequirements([this.upgradeTree[8][0], this.upgradeTree[9][0]], []);
         this.upgradeTree[10][0].setRequirements([this.upgradeTree[9][0], this.upgradeTree[9][1]], []);
-        this.upgradeTree[11][0].setRequirements([this.upgradeTree[10][0], this.upgradeTree[9][0]], []);
         this.upgradeTreeNames = {
             resourceMultiplier: this.upgradeTree[0][0],
             resourceMultiplierUpgrades: this.upgradeTree[1][0],
@@ -219,8 +209,7 @@ class ReStackLayer
             template3: this.upgradeTree[8][0],
             template4: this.upgradeTree[9][0],
             template5: this.upgradeTree[9][1],
-            template6: this.upgradeTree[10][0],
-            template7: this.upgradeTree[11][0]
+            template6: this.upgradeTree[10][0]
         };
     }
 
