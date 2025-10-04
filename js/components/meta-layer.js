@@ -17,6 +17,10 @@ Vue.component("meta-layer", {
         {
             return game.restackLayer.upgradeTreeNames.unlockResourcePowerers.apply();
         },
+        showTetrators: function()
+        {
+            return game.restackLayer.upgradeTreeNames.unlockResourceTetrators.apply();
+        },
         canMaxAll: function()
         {
             return game.restackLayer.upgradeTreeNames.substractLayers.apply();
