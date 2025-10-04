@@ -145,8 +145,8 @@ class ReStackLayer
             ],
             [
                 new RestackLayerUpgrade("Resource Multipliers is now unfathomably strong",
-                    level => new Decimal("1ee400"),
-                    level => new Decimal(1).add(level.mul(10)), {
+                    level => new Decimal("1ee325"),
+                    level => new Decimal(1).add(level.mul(1000)), {
                         maxLevel: 1,
                         getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
                         
