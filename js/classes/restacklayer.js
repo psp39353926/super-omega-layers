@@ -167,6 +167,13 @@ class ReStackLayer
                         getEffectDisplay: effectDisplayTemplates.numberStandard(2, "↑↑")
                         
                     }),
+                new RestackLayerUpgrade("Unlock Resource Tetrators",
+                    level => new Decimal("1eeeeeeee400"),
+                    level => new Decimal(1).add(level.mul(level)), {
+                        maxLevel: 1,
+                        getEffectDisplay: effectDisplayTemplates.numberStandard(2, "↑↑")
+                        
+                    }),
             ]
         ];
         this.upgradeTree[1][0].setRequirements([this.upgradeTree[0][0]], [this.upgradeTree[1][1]]);
@@ -198,7 +205,8 @@ class ReStackLayer
             template2: this.upgradeTree[7][1],
             template3: this.upgradeTree[8][0],
             template4: this.upgradeTree[9][0],
-            template5: this.upgradeTree[9][1]
+            template5: this.upgradeTree[9][1],
+            template6: this.upgradeTree[10][0]
         };
     }
 
