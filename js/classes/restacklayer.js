@@ -155,14 +155,14 @@ class ReStackLayer
             [
                 new RestackLayerUpgrade("Resource Powerers is now multiplied by 2",
                     level => new Decimal("1ee31240"),
-                    level => new Decimal(1).add(level.mul(1)), {
+                    level => new Decimal(1).add(level.mul(level)), {
                         maxLevel: 1,
                         getEffectDisplay: effectDisplayTemplates.numberStandard(2, "x")
                         
                     }),
                 new RestackLayerUpgrade("Resource Multipliers is now multiplied by 2",
                     level => new Decimal("1ee31240"),
-                    level => new Decimal(1).add(level.mul(1)), {
+                    level => new Decimal(1).add(level.mul(level)), {
                         maxLevel: 1,
                         getEffectDisplay: effectDisplayTemplates.numberStandard(2, "x")
                         
