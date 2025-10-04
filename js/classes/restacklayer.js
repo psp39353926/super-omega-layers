@@ -9,18 +9,18 @@ class ReStackLayer
             prestigeGains: new RestackLayerUpgrade("All Prestige gains are higher",
                 level => this.getPermUpgradeCost(),
                 level => Decimal.pow(128, level), {
-                    maxLevel: 2
+                    maxLevel: 1000
                 }),
             layerExponentialBoostFactorTime: new RestackLayerUpgrade("The Layer Exponential Factor increases over time",
                 level => this.getPermUpgradeCost(),
                 level => Math.min(1, this.timeSpent / 28800) * 3 * level.toNumber(), {
-                    maxLevel: 2,
+                    maxLevel: 1000,
                     getEffectDisplay: effectDisplayTemplates.numberStandard(4, "+")
                 }),
             upgradeEffects: new RestackLayerUpgrade("All Upgrade Effects are stronger (including Tree Upgrades)",
                 level => this.getPermUpgradeCost(),
                 level => new Decimal(1).add(level.mul(2)), {
-                    maxLevel: 2,
+                    maxLevel: 1000,
                     getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
                 }),
             powerGenerators: new RestackLayerUpgrade("All Power Generators are stronger",
@@ -153,8 +153,15 @@ class ReStackLayer
                     }),
             ],
             [
-                new RestackLayerUpgrade("Resource Multipliers is now multiplied by itself",
-                    level => new Decimal("1ee500"),
+                new RestackLayerUpgrade("Resource Powerers is now multiplied by 2",
+                    level => new Decimal("1ee400"),
+                    level => new Decimal(1).add(level.mul(level)), {
+                        maxLevel: 1,
+                        getEffectDisplay: effectDisplayTemplates.numberStandard(2, "↑↑")
+                        
+                    }),
+                new RestackLayerUpgrade("Resource Multipliers is now multiplied by 2",
+                    level => new Decimal("1ee400"),
                     level => new Decimal(1).add(level.mul(level)), {
                         maxLevel: 1,
                         getEffectDisplay: effectDisplayTemplates.numberStandard(2, "↑↑")
@@ -174,7 +181,8 @@ class ReStackLayer
         this.upgradeTree[7][0].setRequirements([this.upgradeTree[6][0]], [this.upgradeTree[7][1]]);
         this.upgradeTree[7][1].setRequirements([this.upgradeTree[6][0]], [this.upgradeTree[7][0]]);
         this.upgradeTree[8][0].setRequirements([this.upgradeTree[7][0], this.upgradeTree[7][1]], []);
-        this.upgradeTree[9][0].setRequirements([this.upgradeTree[8][0], this.upgradeTree[8][0]], []);
+        this.upgradeTree[9][0].setRequirements([this.upgradeTree[8][0], this.upgradeTree[9][1]], []);
+        this.upgradeTree[9][1].setRequirements([this.upgradeTree[8][0], this.upgradeTree[9][0]], []);
         this.upgradeTreeNames = {
             resourceMultiplier: this.upgradeTree[0][0],
             resourceMultiplierUpgrades: this.upgradeTree[1][0],
@@ -189,7 +197,8 @@ class ReStackLayer
             template1: this.upgradeTree[7][0],
             template2: this.upgradeTree[7][1],
             template3: this.upgradeTree[8][0],
-            template4: this.upgradeTree[9][0]
+            template4: this.upgradeTree[9][0],
+            template5: this.upgradeTree[9][1]
         };
     }
 
