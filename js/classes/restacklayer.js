@@ -160,9 +160,9 @@ class ReStackLayer
                         getEffectDisplay: effectDisplayTemplates.numberStandard(2, "x")
                         
                     }),
-                new RestackLayerUpgrade("Resource Multipliers is now multiplied by 1 million",
+                new RestackLayerUpgrade("Resource Multipliers is now multiplied by 1 quadrillion",
                     level => new Decimal("1ee3540353182544236"),
-                    level => new Decimal(1).add(level.mul(100)), {
+                    level => new Decimal(1).add(level.mul(1e15)), {
                         maxLevel: 1,
                         getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
                         
