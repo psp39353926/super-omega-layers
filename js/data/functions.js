@@ -386,7 +386,7 @@ const functions = {
         const lid = new Decimal(layer);
         if(lid.gte(mod.Infinities[3]))
         {
-            return "#00ff92";
+            return "#ffffff";
         }
         if(lid.gte(mod.Infinities[2]))
         {
