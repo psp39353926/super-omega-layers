@@ -51,6 +51,32 @@ class MetaLayer
                     getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
                 })
         ];
+        this.TetrationUpgrades = [
+            new MetaDynamicLayerUpgrade("Increase the Resource Tetration",
+                level => Utils.createValueDilation(level.mul(Decimal.pow(level, 2)).mul(Decimal.pow(1e10, Decimal.max(0, level.sub(5)))), 0.001).floor().add(1e200),
+                level => new Decimal(1),
+                level => Decimal.pow(1.2, level).pow(this.getResourcePowererBoost()).mul(game.restackLayer.upgradeTreeNames.resourcePowerersStrength.apply()), {
+                    getEffectDisplay: effectDisplayTemplates.numberStandard(2, "↑↑")
+                }),
+            new MetaDynamicLayerUpgrade("Increase the Resource Tetration",
+                level => Utils.createValueDilation(level.mul(Decimal.pow(level, 3)).mul(Decimal.pow(1e30, Decimal.max(0, level.sub(5)))), 0.001).floor().add(1e250000),
+                level => new Decimal(1),
+                level => Decimal.pow(1.2, level).pow(this.getResourcePowererBoost()).mul(game.restackLayer.upgradeTreeNames.resourcePowerersStrength.apply()), {
+                    getEffectDisplay: effectDisplayTemplates.numberStandard(2, "↑↑")
+                }),
+            new MetaDynamicLayerUpgrade("Increase the Resource Tetration",
+                level => Utils.createValueDilation(level.mul(Decimal.pow(level, 5)).mul(Decimal.pow(1e250, Decimal.max(0, level.sub(3)))), 0.001).floor().add(Decimal.pow(10, Decimal.pow(10, 9))),
+                level => new Decimal(1),
+                level => Decimal.pow(1.1, level).pow(this.getResourcePowererBoost()).mul(game.restackLayer.upgradeTreeNames.resourcePowerersStrength.apply()), {
+                    getEffectDisplay: effectDisplayTemplates.numberStandard(2, "↑↑")
+                }),
+            new MetaDynamicLayerUpgrade("Increase the Resource Tetration",
+                level => Utils.createValueDilation(level.mul(Decimal.pow(level, 10)).mul(Decimal.pow(1e1000, Decimal.max(0, level.sub(1)))), 0.001).floor().add(Decimal.pow(10, Decimal.pow(10, 25))),
+                level => new Decimal(1),
+                level => Decimal.pow(1.09, level).pow(this.getResourcePowererBoost()).mul(game.restackLayer.upgradeTreeNames.resourcePowerersStrength.apply()), {
+                    getEffectDisplay: effectDisplayTemplates.numberStandard(2, "↑↑")
+                })
+        ];
     }
 
     getMultiPS()
@@ -76,12 +102,15 @@ class MetaLayer
     {
         return game.restackLayer.upgradeTreeNames.resourceMultiplierUpgrades.apply()
             .mul(game.restackLayer.upgradeTreeNames.resourceMultiplierUpgradesTime.apply())
-            .mul(game.restackLayer.upgradeTreeNames.resourceMultiplierUpgrades2.apply());
+            .mul(game.restackLayer.upgradeTreeNames.resourceMultiplierUpgrades2.apply())
+            .mul(game.restackLayer.upgradeTreeNames.template1.apply())
+            .mul(game.restackLayer.upgradeTreeNames.template3.apply());
     }
 
     getResourcePowererBoost()
     {
-        return game.restackLayer.upgradeTreeNames.resourcePowerersUpgrades.apply();
+        return game.restackLayer.upgradeTreeNames.resourcePowerersUpgrades.apply()
+            .mul(game.restackLayer.upgradeTreeNames.template2.apply());
     }
 
     getApproxAlpha()
