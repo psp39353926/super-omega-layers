@@ -153,27 +153,27 @@ class ReStackLayer
                     }),
             ],
             [
-                new RestackLayerUpgrade("Resource Powerers is now multiplied by 2",
+                new RestackLayerUpgrade("Resource Powerers is now multiplied by 10000",
                     level => new Decimal("1ee31240"),
-                    level => new Decimal(1).add(level.mul(1)), {
+                    level => new Decimal(1).add(level.mul(1e5)), {
                         maxLevel: 1,
                         getEffectDisplay: effectDisplayTemplates.numberStandard(2, "x")
                         
                     }),
                 new RestackLayerUpgrade("Resource Multipliers is now multiplied by 2",
                     level => new Decimal("1ee31240"),
-                    level => new Decimal(1).add(level.mul(1)), {
+                    level => new Decimal(1).add(level.mul(1e5)), {
                         maxLevel: 1,
-                        getEffectDisplay: effectDisplayTemplates.numberStandard(2, "x")
+                        getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
                         
                     }),
             ],
             [
-                new RestackLayerUpgrade("Resource Powerers is now multiplied by 3",
+                new RestackLayerUpgrade("Resource Powerers is now multiplied by 1 trillion",
                     level => new Decimal("1ee133267"),
-                    level => new Decimal(1).add(level.mul(decimal.mul(1, 2))), {
+                    level => new Decimal(1).add(level.mul(1e12)), {
                         maxLevel: 1,
-                        getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
+                        getEffectDisplay: effectDisplayTemplates.numberStandard(2, "x")
                         
                     }),
             ]
