@@ -86,8 +86,7 @@ class MetaLayer
     {
         return game.restackLayer.upgradeTreeNames.resourcePowerersUpgrades.apply()
             .mul(game.restackLayer.upgradeTreeNames.template1.apply())
-            .mul(game.restackLayer.upgradeTreeNames.template4.apply())
-            .mul(game.restackLayer.upgradeTreeNames.template6.apply());
+            .mul(game.restackLayer.upgradeTreeNames.template4.apply());
     }
 
     getApproxAlpha()
