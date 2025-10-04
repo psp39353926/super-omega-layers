@@ -167,15 +167,6 @@ class ReStackLayer
                         getEffectDisplay: effectDisplayTemplates.numberStandard(2, "x")
                         
                     }),
-            ],
-            [
-                new RestackLayerUpgrade("Resource Powerers is now multiplied by 3",
-                    level => new Decimal("1ee133267"),
-                    level => new Decimal(1).add(level.mul(decimal.pow(level))), {
-                        maxLevel: 1,
-                        getEffectDisplay: effectDisplayTemplates.numberStandard(3, "x")
-                        
-                    }),
             ]
         ];
         this.upgradeTree[1][0].setRequirements([this.upgradeTree[0][0]], [this.upgradeTree[1][1]]);
@@ -192,7 +183,6 @@ class ReStackLayer
         this.upgradeTree[8][0].setRequirements([this.upgradeTree[7][0], this.upgradeTree[7][1]], []);
         this.upgradeTree[9][0].setRequirements([this.upgradeTree[8][0], this.upgradeTree[9][1]], []);
         this.upgradeTree[9][1].setRequirements([this.upgradeTree[8][0], this.upgradeTree[9][0]], []);
-        this.upgradeTree[10][0].setRequirements([this.upgradeTree[9][0], this.upgradeTree[9][1]], []);
         this.upgradeTreeNames = {
             resourceMultiplier: this.upgradeTree[0][0],
             resourceMultiplierUpgrades: this.upgradeTree[1][0],
@@ -208,8 +198,7 @@ class ReStackLayer
             template2: this.upgradeTree[7][1],
             template3: this.upgradeTree[8][0],
             template4: this.upgradeTree[9][0],
-            template5: this.upgradeTree[9][1],
-            template6: this.upgradeTree[10][0]
+            template5: this.upgradeTree[9][1]
         };
     }
 
