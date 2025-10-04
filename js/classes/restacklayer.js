@@ -190,6 +190,7 @@ class ReStackLayer
         this.upgradeTree[8][0].setRequirements([this.upgradeTree[7][0], this.upgradeTree[7][1]], []);
         this.upgradeTree[9][0].setRequirements([this.upgradeTree[8][0], this.upgradeTree[9][1]], []);
         this.upgradeTree[9][1].setRequirements([this.upgradeTree[8][0], this.upgradeTree[9][0]], []);
+        this.upgradeTree[10][0].setRequirements([this.upgradeTree[9][0], this.upgradeTree[9][1]], []);
         this.upgradeTreeNames = {
             resourceMultiplier: this.upgradeTree[0][0],
             resourceMultiplierUpgrades: this.upgradeTree[1][0],
