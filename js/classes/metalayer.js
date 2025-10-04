@@ -79,7 +79,7 @@ class MetaLayer
             .mul(game.restackLayer.upgradeTreeNames.resourceMultiplierUpgrades2.apply())
             .mul(game.restackLayer.upgradeTreeNames.template2.apply())
             .mul(game.restackLayer.upgradeTreeNames.template3.apply())
-            .mul(game.restackLayer.upgradeTreeNames.template5.apply());
+            
     }
 
     getResourcePowererBoost()
@@ -87,7 +87,8 @@ class MetaLayer
         return game.restackLayer.upgradeTreeNames.resourcePowerersUpgrades.apply()
             .mul(game.restackLayer.upgradeTreeNames.template1.apply())
             .mul(game.restackLayer.upgradeTreeNames.template4.apply())
-            .mul(game.restackLayer.upgradeTreeNames.iamhard.apply());
+            .mul(game.restackLayer.upgradeTreeNames.iamhard.apply())
+            .mul(game.restackLayer.upgradeTreeNames.template5.apply());
             
     }
 
